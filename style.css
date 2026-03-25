@@ -1,0 +1,162 @@
+/* Reset & Fonts - Menggunakan Poppins yang modern dan bersih */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0b0e14; /* Biru/Abu sangat gelap khas web gaming */
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+/* Layout Umum */
+.container { width: 90%; max-width: 1100px; margin: auto; }
+.section-padding { padding: 60px 0; }
+.bg-darker { background-color: #121822; }
+
+/* Header Sederhana & Bersih (Teks Logo Kemuning/Emas) */
+header {
+    background-color: #0b0e14;
+    padding: 20px 0;
+    border-bottom: 1px solid #1e293b;
+    text-align: center;
+}
+
+/* BAGIAN YANG DIUBAH: Menata Logo Image dan Teks */
+header .container.header-container {
+    display: flex;
+    justify-content: center; /* Tetap rata tengah secara keseluruhan */
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 15px; /* Jarak antara logo image dan teks */
+}
+
+.logo-img {
+    height: 100px; /* Atur tinggi logo image agar pas dengan teks */
+    width: auto;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #facc15; /* Warna Kuning Emas asli permintaan Anda */
+    letter-spacing: 1px;
+    margin-bottom: 0; /* Hapus margin default dari h1 */
+}
+
+/* Hero / Intro (Tidak Kaku) */
+.hero { padding: 50px 0; border-bottom: 1px solid #1e293b; }
+.hero-container { text-align: center; }
+.main-title { font-size: 2.5rem; color: #fff; margin-bottom: 10px; font-weight: 700; }
+.tagline { font-size: 1.1rem; color: #94a3b8; font-style: italic; margin-bottom: 40px; }
+
+.intro-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; margin-bottom: 30px; text-align: left;
+}
+.intro-box { background: #121822; padding: 25px; border-radius: 8px; border: 1px solid #1e293b; }
+.intro-label { font-weight: 600; color: #facc15; margin-bottom: 15px; }
+
+.game-list, .location-list { list-style: none; padding-left: 10px; }
+.game-list li, .location-list li { margin-bottom: 8px; position: relative; padding-left: 20px; color: #cbd5e1; }
+.game-list li::before { content: "🎮"; position: absolute; left: -5px; font-size: 0.8rem; }
+.location-list li::before { content: "📍"; position: absolute; left: -5px; font-size: 0.8rem; }
+
+.full-service {
+    margin-top: 30px; font-size: 1.1rem; font-weight: 500;
+    color: #fff; background: #1e293b; display: inline-block;
+    padding: 10px 20px; border-radius: 6px;
+}
+
+/* Section Title */
+.section-title {
+    text-align: center; font-size: 1.5rem; margin-bottom: 40px;
+    color: #fff; font-weight: 600; letter-spacing: 1px;
+}
+
+/* Grid Toko / Paket */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.product-card {
+    background: #0f141e; border: 1px solid #1e293b; border-radius: 12px;
+    display: flex; flex-direction: column; transition: 0.3s ease;
+}
+.product-card:hover { border-color: #facc15; transform: translateY(-4px); }
+.highlight-card { border-color: #334155; transform: scale(1.02); }
+
+.card-header { padding: 25px; text-align: center; border-bottom: 1px solid #1e293b; }
+.basic-border h3 { color: #4ade80; } /* Hijau */
+.standard-border h3 { color: #38bdf8; } /* Biru */
+.premium-border h3 { color: #c084fc; } /* Ungu */
+
+.card-header h3 { font-size: 1.2rem; margin-bottom: 10px; }
+.price { font-size: 1.8rem; font-weight: 700; color: #facc15; margin-bottom: 5px; }
+.cocok { font-size: 0.85rem; color: #94a3b8; }
+
+.card-body { padding: 25px; flex-grow: 1; }
+.fasilitas-title { font-weight: 600; color: #fff; margin-bottom: 15px; }
+.card-body ul { list-style: none; font-size: 0.9rem; color: #cbd5e1; }
+.card-body li { margin-bottom: 10px; position: relative; padding-left: 20px; }
+.card-body li::before { content: "▪"; color: #facc15; position: absolute; left: 0; font-size: 1.2rem; line-height: 1; }
+
+.btn-buy {
+    display: block; text-align: center; padding: 15px; margin: 0 25px 25px;
+    background: transparent; border: 1px solid #facc15; color: #facc15;
+    text-decoration: none; font-weight: 600; border-radius: 6px; transition: 0.3s;
+}
+.btn-buy:hover { background: #facc15; color: #0b0e14; }
+.btn-primary { background: #facc15; color: #0b0e14; }
+.btn-primary:hover { background: #eab308; }
+
+/* Waktu Pemesanan */
+.waktu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+.waktu-card { padding: 30px; border-radius: 12px; border: 1px solid #1e293b; background: #0f141e; }
+.waktu-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #fff; }
+.waktu-card.warning h3::before { content: "🔥 "; }
+.waktu-card.success h3::before { content: "⏳ "; }
+
+.biaya { font-size: 1rem; color: #cbd5e1; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #1e293b; }
+.biaya strong { color: #ef4444; }
+.biaya.bonus { color: #facc15; font-weight: 700; }
+
+.waktu-details { display: flex; gap: 20px; flex-wrap: wrap; }
+.waktu-col { flex: 1; min-width: 150px; }
+.detail-title { font-weight: 600; color: #fff; font-size: 0.9rem; margin-bottom: 10px; }
+.waktu-col ul { list-style: none; font-size: 0.85rem; color: #cbd5e1; }
+.waktu-col li { margin-bottom: 5px; padding-left: 12px; position: relative; }
+.waktu-col li::before { content: "-"; position: absolute; left: 0; color: #64748b; }
+
+/* Info Grid (Keunggulan & Notes) */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.info-box { padding: 30px; background: #0f141e; border-radius: 12px; border: 1px solid #1e293b; }
+.info-box h2 { font-size: 1.2rem; color: #facc15; margin-bottom: 20px; }
+.check-list, .dot-list { list-style: none; color: #cbd5e1; font-size: 0.95rem; }
+.check-list li, .dot-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: #4ade80; font-weight: bold; }
+
+/* INI BAGIAN KUSTOM ASLI PERMINTAAN ANDA: Dari logo telepon menjadi panah kecil kuning */
+.dot-list li::before { content: "▸"; position: absolute; left: 0; color: #facc15; font-size: 1.2rem; line-height: 1; }
+
+/* Footer */
+footer { text-align: center; padding: 30px; background: #0b0e14; color: #64748b; font-size: 0.85rem; border-top: 1px solid #1e293b; }
+
+/* Tombol WA Resmi Bawah Kanan Melayang */
+.float-wa {
+    position: fixed; bottom: 30px; right: 30px;
+    background-color: #25D366; /* Warna Asli WhatsApp */
+    color: #fff;
+    border-radius: 50%; padding: 15px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    z-index: 1000; transition: 0.3s ease;
+}
+.float-wa:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
+
+/* Responsif */
+@media (max-width: 768px) {
+    .main-title { font-size: 2rem; }
+    .waktu-details { flex-direction: column; gap: 15px; }
+    .highlight-card { transform: none; }
+}
