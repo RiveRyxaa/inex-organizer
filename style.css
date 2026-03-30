@@ -1,10 +1,11 @@
-/* Reset & Fonts - Menggunakan Poppins yang modern dan bersih */
+/* Reset & Fonts */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #0b0e14; /* Biru/Abu sangat gelap khas web gaming */
+    background-color: #0b0e14;
     color: #e2e8f0;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* Layout Umum */
@@ -12,18 +13,31 @@ body {
 .section-padding { padding: 60px 0; }
 .bg-darker { background-color: #121822; }
 
-/* Header Sederhana & Bersih (Teks Logo Kemuning/Emas) */
+/* Header dengan Efek Glassmorphism saat di-scroll */
 header {
     background-color: #0b0e14;
     padding: 20px 0;
     border-bottom: 1px solid #1e293b;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 999;
+    transition: all 0.3s ease;
 }
 
-/* BAGIAN YANG DIUBAH: Menata Logo Image dan Teks */
+header.scrolled {
+    background-color: rgba(11, 14, 20, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
 header .container.header-container {
     display: flex;
-    justify-content: center; /* Tetap rata tengah secara keseluruhan */
+    justify-content: center;
     align-items: center;
 }
 
@@ -31,27 +45,35 @@ header .container.header-container {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 15px; /* Jarak antara logo image dan teks */
+    gap: 15px;
 }
 
 .logo-img {
-    height: 100px; /* Atur tinggi logo image agar pas dengan teks */
+    height: 100px;
     width: auto;
+    transition: height 0.3s ease;
+}
+
+header.scrolled .logo-img {
+    height: 60px; /* Logo mengecil saat di-scroll */
 }
 
 .logo-text {
     font-size: 24px;
     font-weight: 700;
-    color: #facc15; /* Warna Kuning Emas asli permintaan Anda */
+    color: #facc15;
     letter-spacing: 1px;
-    margin-bottom: 0; /* Hapus margin default dari h1 */
+    margin-bottom: 0;
 }
 
-/* Hero / Intro (Tidak Kaku) */
-.hero { padding: 50px 0; border-bottom: 1px solid #1e293b; }
+/* Hero / Intro */
+.hero { padding: 150px 0 50px 0; border-bottom: 1px solid #1e293b; }
 .hero-container { text-align: center; }
 .main-title { font-size: 2.5rem; color: #fff; margin-bottom: 10px; font-weight: 700; }
-.tagline { font-size: 1.1rem; color: #94a3b8; font-style: italic; margin-bottom: 40px; }
+.tagline { font-size: 1.1rem; color: #94a3b8; font-style: italic; margin-bottom: 40px; min-height: 30px; }
+
+/* Efek Kursor Mengetik (Typewriter) */
+.typewrite > .wrap { border-right: 0.08em solid #facc15; padding-right: 2px; }
 
 .intro-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -83,13 +105,11 @@ header .container.header-container {
     background: #0f141e; border: 1px solid #1e293b; border-radius: 12px;
     display: flex; flex-direction: column; transition: 0.3s ease;
 }
-.product-card:hover { border-color: #facc15; transform: translateY(-4px); }
-.highlight-card { border-color: #334155; transform: scale(1.02); }
 
 .card-header { padding: 25px; text-align: center; border-bottom: 1px solid #1e293b; }
-.basic-border h3 { color: #4ade80; } /* Hijau */
-.standard-border h3 { color: #38bdf8; } /* Biru */
-.premium-border h3 { color: #c084fc; } /* Ungu */
+.basic-border h3 { color: #4ade80; }
+.standard-border h3 { color: #38bdf8; }
+.premium-border h3 { color: #c084fc; }
 
 .card-header h3 { font-size: 1.2rem; margin-bottom: 10px; }
 .price { font-size: 1.8rem; font-weight: 700; color: #facc15; margin-bottom: 5px; }
@@ -135,17 +155,15 @@ header .container.header-container {
 .check-list, .dot-list { list-style: none; color: #cbd5e1; font-size: 0.95rem; }
 .check-list li, .dot-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
 .check-list li::before { content: "✓"; position: absolute; left: 0; color: #4ade80; font-weight: bold; }
-
-/* INI BAGIAN KUSTOM ASLI PERMINTAAN ANDA: Dari logo telepon menjadi panah kecil kuning */
 .dot-list li::before { content: "▸"; position: absolute; left: 0; color: #facc15; font-size: 1.2rem; line-height: 1; }
 
 /* Footer */
 footer { text-align: center; padding: 30px; background: #0b0e14; color: #64748b; font-size: 0.85rem; border-top: 1px solid #1e293b; }
 
-/* Tombol WA Resmi Bawah Kanan Melayang */
+/* Tombol WA Resmi Bawah Kanan */
 .float-wa {
     position: fixed; bottom: 30px; right: 30px;
-    background-color: #25D366; /* Warna Asli WhatsApp */
+    background-color: #25D366; 
     color: #fff;
     border-radius: 50%; padding: 15px;
     display: flex; align-items: center; justify-content: center;
@@ -154,9 +172,72 @@ footer { text-align: center; padding: 30px; background: #0b0e14; color: #64748b;
 }
 .float-wa:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
 
-/* Responsif */
+
+/* =========================================
+   ANIMASI & EFEK INTERAKTIF
+   ========================================= */
+
+/* 1. Animasi Scroll Reveal */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 2. Efek Glow Interaktif pada Kartu (Khusus PC agar tidak error di HP) */
+@media (hover: hover) {
+    .product-card, .info-box, .waktu-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .product-card:hover, .info-box:hover, .waktu-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(250, 204, 21, 0.1); 
+        border-color: #facc15;
+    }
+    .highlight-card:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.2); 
+        border-color: #38bdf8;
+    }
+}
+
+/* 3. Efek Pulsing pada Tombol Beli Utama */
+.btn-primary {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(250, 204, 21, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
+}
+
+/* =========================================
+   RESPONSIF MOBILE (HP)
+   ========================================= */
 @media (max-width: 768px) {
-    .main-title { font-size: 2rem; }
+    .section-padding { padding: 40px 0; }
+    
+    /* Pengecilan Header di HP */
+    .logo-img { height: 70px; } 
+    header.scrolled .logo-img { height: 45px; }
+    .logo-text { font-size: 20px; }
+    
+    .hero { padding: 120px 0 40px 0; }
+    .main-title { font-size: 2rem; margin-bottom: 5px; }
+    .tagline { font-size: 0.95rem; margin-bottom: 30px; min-height: 45px; } 
+    
+    /* Layout Kartu HP */
+    .product-grid, .waktu-grid, .intro-grid, .info-grid { gap: 20px; }
+    .highlight-card { transform: none; border-color: #1e293b; } /* Reset transform di HP */
+    .card-header h3 { font-size: 1.1rem; }
+    .price { font-size: 1.5rem; }
+    
     .waktu-details { flex-direction: column; gap: 15px; }
-    .highlight-card { transform: none; }
+    
+    /* Penyesuaian Tombol WA melayang di HP */
+    .float-wa { bottom: 20px; right: 20px; padding: 12px; }
+    .float-wa svg { width: 24px; height: 24px; }
 }
