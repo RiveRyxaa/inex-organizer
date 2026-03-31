@@ -341,7 +341,7 @@ footer { text-align: center; padding: 70px 0 50px 0; background: var(--bg-darker
 
 @keyframes glitch-anim { 0% { clip: rect(32px, 9999px, 86px, 0); } 20% { clip: rect(38px, 9999px, 98px, 0); } 40% { clip: rect(2px, 9999px, 91px, 0); } 60% { clip: rect(38px, 9999px, 99px, 0); } 80% { clip: rect(49px, 9999px, 66px, 0); } 100% { clip: rect(59px, 9999px, 62px, 0); } }
 @keyframes glitch-anim2 { 0% { clip: rect(65px, 9999px, 100px, 0); } 20% { clip: rect(67px, 9999px, 61px, 0); } 40% { clip: rect(23px, 9999px, 98px, 0); } 60% { clip: rect(30px, 9999px, 16px, 0); } 80% { clip: rect(47px, 9999px, 73px, 0); } 100% { clip: rect(38px, 9999px, 49px, 0); } }
-
+/* Perbaikan Lebar Tagline di PC */
 .tagline { 
     font-size: 1.3rem; 
     color: var(--text-muted); 
