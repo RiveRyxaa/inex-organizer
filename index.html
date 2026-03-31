@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INEX ORGANIZER</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>INEX ORGANIZER - E-Sports Event Expert</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <a href="https://wa.me/6281231982985" class="float-wa" target="_blank" title="Hubungi Kami">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-content">
+            <h1 class="loader-logo">INEX <span style="color: #fff;">ORGANIZER</span></h1>
+            <div class="loader-bar-container">
+                <div class="loader-bar"></div>
+            </div>
+            <p class="loader-text">INITIALIZING SYSTEM...</p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/6281231982985" class="float-wa" target="_blank" title="Hubungi Admin INEX">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="28" height="28" fill="currentColor">
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.4-8.6-44.5-27.5-16.4-14.6-27.5-32.8-30.7-38.2-3.2-5.5-.3-8.5 2.5-11.2 2.5-2.6 5.5-6.5 8.3-9.7 2.8-3.2 3.7-5.5 5.6-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.3 5.7 23.6 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.7z"/>
         </svg>
     </a>
+
+    <div class="progress-wrap" id="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+        <span class="arrow-up">↑</span>
+    </div>
 
     <header id="navbar">
         <div class="container header-container">
@@ -24,14 +44,15 @@
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container hero-container">
-            <h1 class="main-title">INEX ORGANIZER</h1>
+    <section class="hero" id="particles-js">
+        <div class="container hero-container relative-z">
+            <div class="badge-hero reveal">#1 ESPORTS EVENT PARTNER</div>
+            <h1 class="main-title glitched" data-text="INEX ORGANIZER">INEX ORGANIZER</h1>
             <p class="tagline">Event Organizer Esports – <span class="typewrite" data-period="2000" data-type='[ "Profesional.", "Terjangkau.", "Siap Jalan." ]'></span></p>
             
             <div class="intro-grid reveal">
-                <div class="intro-box">
-                    <p class="intro-label">INEX Organizer melayani penyelenggaraan turnamen game seperti:</p>
+                <div class="intro-box glass-box hover-lift">
+                    <p class="intro-label">INEX melayani penyelenggaraan turnamen game seperti:</p>
                     <ul class="game-list">
                         <li>Mobile Legends (MLBB)</li>
                         <li>MCGG</li>
@@ -40,7 +61,7 @@
                         <li>FIFA Mobile</li>
                     </ul>
                 </div>
-                <div class="intro-box">
+                <div class="intro-box glass-box hover-lift">
                     <p class="intro-label">Kami siap membantu event di:</p>
                     <ul class="location-list">
                         <li>Warkop</li>
@@ -54,20 +75,39 @@
         </div>
     </section>
 
-    <section class="section-padding bg-darker">
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span>⚡ LEVEL UP YOUR TOURNAMENT</span>
+            <span>🎮 MLBB</span>
+            <span>🎮 PUBG MOBILE</span>
+            <span>🎮 FREE FIRE</span>
+            <span>🎮 HONOR OF KINGS</span>
+            <span>⚡ PRO CASTER & ADMIN</span>
+            <span>🏆 CUSTOM CERTIFICATE</span>
+            <span>⚡ LEVEL UP YOUR TOURNAMENT</span>
+            <span>🎮 MLBB</span>
+            <span>🎮 PUBG MOBILE</span>
+            <span>🎮 FREE FIRE</span>
+            <span>🎮 HONOR OF KINGS</span>
+            <span>⚡ PRO CASTER & ADMIN</span>
+            <span>🏆 CUSTOM CERTIFICATE</span>
+        </div>
+    </div>
+
+    <section class="section-padding bg-darker" id="paket">
         <div class="container">
-            <h2 class="section-title reveal">PAKET LAYANAN INEX ORGANIZER</h2>
+            <h2 class="section-title reveal"><span class="accent-text">PAKET LAYANAN</span> INEX ORGANIZER</h2>
 
             <div class="product-grid">
-                <div class="product-card reveal">
-                    <div class="card-header basic-border">
+                <div class="product-card reveal basic-card">
+                    <div class="card-header">
                         <h3>1. Paket Basic – “Starter Match”</h3>
                         <p class="price">Rp 300.000</p>
                         <p class="cocok">Cocok untuk event kecil / santai</p>
                     </div>
                     <div class="card-body">
-                        <p class="fasilitas-title">Fasilitas:</p>
-                        <ul>
+                        <p class="fasilitas-title">Fasilitas Utama:</p>
+                        <ul class="feature-list">
                             <li>Sistem pertandingan (Bracket & Rules)</li>
                             <li>Admin pendataan tim/player</li>
                             <li>1 Admin Standby selama event</li>
@@ -75,18 +115,21 @@
                             <li>Durasi 1 hari event</li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/6281231982985?text=Halo%20Admin%20INEX%20Organizer,%20saya%20tertarik%20untuk%20pesan%20*Paket%201:%20Basic%20(Starter%20Match)*%20seharga%20Rp%20300.000.%20Boleh%20minta%20info%20lebih%20lanjut?" class="btn-buy" target="_blank">Pilih Paket</a>
+                    <div class="btn-container">
+                        <a href="https://wa.me/6281231982985?text=Halo%20Admin%20INEX,%20saya%20mau%20pesan%20*Paket%20Basic*." class="btn-buy" target="_blank">Pilih Paket</a>
+                    </div>
                 </div>
 
-                <div class="product-card highlight-card reveal">
-                    <div class="card-header standard-border">
+                <div class="product-card reveal standard-card">
+                    <div class="badge-premium">MOST POPULAR</div>
+                    <div class="card-header">
                         <h3>2. Paket Standard – “Pro Match”</h3>
                         <p class="price">Rp 500.000</p>
                         <p class="cocok">Cocok untuk event komunitas menengah</p>
                     </div>
                     <div class="card-body">
-                        <p class="fasilitas-title">Fasilitas:</p>
-                        <ul>
+                        <p class="fasilitas-title">Fasilitas Utama:</p>
+                        <ul class="feature-list">
                             <li>Sistem pertandingan profesional</li>
                             <li>Admin & Technical Support</li>
                             <li>1 Caster (Basic)</li>
@@ -95,18 +138,20 @@
                             <li>Durasi 1–2 hari event</li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/6281231982985?text=Halo%20Admin%20INEX%20Organizer,%20saya%20tertarik%20untuk%20pesan%20*Paket%202:%20Standard%20(Pro%20Match)*%20seharga%20Rp%20500.000.%20Boleh%20minta%20info%20lebih%20lanjut?" class="btn-buy btn-primary" target="_blank">Pilih Paket</a>
+                    <div class="btn-container">
+                        <a href="https://wa.me/6281231982985?text=Halo%20Admin%20INEX,%20saya%20mau%20pesan%20*Paket%20Standard*." class="btn-buy btn-primary" target="_blank">Pilih Paket</a>
+                    </div>
                 </div>
 
-                <div class="product-card reveal">
-                    <div class="card-header premium-border">
+                <div class="product-card reveal premium-card">
+                    <div class="card-header">
                         <h3>3. Paket Premium – “Tournament Series”</h3>
                         <p class="price">Rp 750.000</p>
-                        <p class="cocok">Cocok untuk event besar / branding cafe / komunitas</p>
+                        <p class="cocok">Cocok untuk event besar / branding cafe</p>
                     </div>
                     <div class="card-body">
-                        <p class="fasilitas-title">Fasilitas:</p>
-                        <ul>
+                        <p class="fasilitas-title">Fasilitas Utama:</p>
+                        <ul class="feature-list">
                             <li>Full sistem tournament (Bracket + Jadwal)</li>
                             <li>2 Admin (Operator & Support)</li>
                             <li>1–2 Caster (Lebih interaktif)</li>
@@ -116,7 +161,9 @@
                             <li>Durasi 2–3 hari event</li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/6281231982985?text=Halo%20Admin%20INEX%20Organizer,%20saya%20tertarik%20untuk%20pesan%20*Paket%203:%20Premium%20(Tournament%20Series)*%20seharga%20Rp%20750.000.%20Boleh%20minta%20info%20lebih%20lanjut?" class="btn-buy" target="_blank">Pilih Paket</a>
+                    <div class="btn-container">
+                        <a href="https://wa.me/6281231982985?text=Halo%20Admin%20INEX,%20saya%20mau%20pesan%20*Paket%20Premium*." class="btn-buy" target="_blank">Pilih Paket</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,17 +171,19 @@
 
     <section class="section-padding">
         <div class="container">
-            <h2 class="section-title reveal">PAKET BERDASARKAN WAKTU PEMESANAN</h2>
+            <h2 class="section-title reveal">PAKET BERDASARKAN <span class="accent-text">WAKTU</span></h2>
             
             <div class="waktu-grid reveal">
-                <div class="waktu-card warning">
-                    <h3>Paket MENDADAK (H-5 ke bawah)</h3>
+                <div class="waktu-card warning glass-box hover-lift">
+                    <div class="waktu-header">
+                        <span class="waktu-icon">🔥</span>
+                        <h3>Paket MENDADAK (H-5 ke bawah)</h3>
+                    </div>
                     <p class="biaya">Tambahan biaya: <strong>+Rp 100.000</strong></p>
-                    
                     <div class="waktu-details">
                         <div class="waktu-col">
                             <p class="detail-title">Keterangan:</p>
-                            <ul>
+                            <ul class="waktu-list">
                                 <li>Prioritas cepat</li>
                                 <li>Setup sistem ekspres</li>
                                 <li>Tim langsung standby tanpa banyak revisi</li>
@@ -142,7 +191,7 @@
                         </div>
                         <div class="waktu-col">
                             <p class="detail-title">Cocok untuk:</p>
-                            <ul>
+                            <ul class="waktu-list">
                                 <li>Event dadakan</li>
                                 <li>Turnamen urgent</li>
                             </ul>
@@ -150,14 +199,16 @@
                     </div>
                 </div>
 
-                <div class="waktu-card success">
-                    <h3>Paket PREPARE (H-7 ke atas)</h3>
+                <div class="waktu-card success glass-box hover-lift">
+                    <div class="waktu-header">
+                        <span class="waktu-icon">⏳</span>
+                        <h3>Paket PREPARE (H-7 ke atas)</h3>
+                    </div>
                     <p class="biaya bonus">BONUS TANPA BIAYA TAMBAHAN</p>
-                    
                     <div class="waktu-details">
                         <div class="waktu-col">
                             <p class="detail-title">Benefit tambahan:</p>
-                            <ul>
+                            <ul class="waktu-list">
                                 <li>Konsultasi konsep event</li>
                                 <li>Revisi sistem & format</li>
                                 <li>Bantuan strategi jalannya event</li>
@@ -166,7 +217,7 @@
                         </div>
                         <div class="waktu-col">
                             <p class="detail-title">Cocok untuk:</p>
-                            <ul>
+                            <ul class="waktu-list">
                                 <li>Event resmi</li>
                                 <li>Branding cafe / komunitas</li>
                             </ul>
@@ -178,35 +229,101 @@
     </section>
 
     <section class="section-padding bg-darker">
+        <div class="container">
+            <h2 class="section-title reveal">DOKUMENTASI <span class="accent-text">EVENT KAMI</span></h2>
+            <div class="portfolio-grid reveal">
+                <div class="portfolio-item">
+                    <div class="portfolio-img-bg" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070');"></div>
+                    <div class="portfolio-overlay">
+                        <h4>MLBB Championship</h4>
+                        <p>Cafe Arena, 2026</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img-bg" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=2071');"></div>
+                    <div class="portfolio-overlay">
+                        <h4>PUBG Pro Scrim</h4>
+                        <p>Warkop Gaming, 2026</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-img-bg" style="background-image: url('https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=2070');"></div>
+                    <div class="portfolio-overlay">
+                        <h4>FF Community Clash</h4>
+                        <p>Outdoor Venue, 2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
         <div class="container info-grid">
-            <div class="info-box border-accent reveal">
-                <h2>KEUNGGULAN INEX ORGANIZER</h2>
+            <div class="info-box border-accent reveal glass-box hover-lift">
+                <h2>🎯 KEUNGGULAN INEX ORGANIZER</h2>
                 <ul class="check-list">
-                    <li>Harga terjangkau</li>
-                    <li>Tim berpengalaman di esports</li>
-                    <li>Sistem rapi & profesional</li>
-                    <li>Bisa menyesuaikan kebutuhan client</li>
-                    <li>Cocok untuk komunitas & bisnis lokal</li>
+                    <li>Harga sangat terjangkau</li>
+                    <li>Tim berpengalaman di dunia esports</li>
+                    <li>Sistem rapi, disiplin & profesional</li>
+                    <li>Bisa menyesuaikan kebutuhan budget client</li>
+                    <li>Sangat cocok untuk komunitas & bisnis lokal</li>
                 </ul>
             </div>
             
-            <div class="info-box border-accent reveal">
-                <h2>NOTE TAMBAHAN</h2>
+            <div class="info-box border-accent reveal glass-box hover-lift">
+                <h2>⚠️ NOTE TAMBAHAN PENTING</h2>
                 <ul class="dot-list">
-                    <li>Harga belum termasuk hadiah/pool prize</li>
-                    <li>Bisa request tambahan (Live Streaming, MC, dll)</li>
-                    <li>Lokasi luar kota bisa ada penyesuaian biaya</li>
+                    <li>Harga paket belum termasuk hadiah/pool prize</li>
+                    <li>Bisa request tambahan jasa (Live Streaming, MC, dll)</li>
+                    <li>Lokasi luar kota akan ada sedikit penyesuaian biaya transport</li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-darker">
+        <div class="container">
+            <h2 class="section-title reveal">FREQUENTLY ASKED <span class="accent-text">QUESTIONS</span></h2>
+            <div class="faq-container reveal">
+                <div class="faq-item">
+                    <button class="faq-btn">Apakah INEX menyediakan Venue/Tempat? <span class="faq-icon">+</span></button>
+                    <div class="faq-content">
+                        <p>Tidak, kami fokus sepenuhnya pada sistem dan jalannya turnamen. Venue atau lokasi acara disediakan oleh pihak Anda (klien) seperti di Cafe, Warkop, atau lokasi basecamp komunitas.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-btn">Bagaimana detail sistem pembayarannya? <span class="faq-icon">+</span></button>
+                    <div class="faq-content">
+                        <p>Sistem pembayaran kami sangat aman. Anda cukup melakukan DP 50% di awal sebagai tanda jadi dan *booking* jadwal tim kami. Sisa pelunasan dilakukan maksimal H-1 sebelum event dimulai.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-btn">Apakah bisa custom paket selain yang ada di atas? <span class="faq-icon">+</span></button>
+                    <div class="faq-content">
+                        <p>Tentu saja bisa! Silakan klik tombol WhatsApp untuk berdiskusi langsung dengan Admin kami mengenai kebutuhan khusus event Anda, kami akan hitungkan penawaran terbaiknya.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; INEX ORGANIZER. All rights reserved.</p>
+            <div class="footer-content">
+                <img src="logo.png" alt="Logo Footer" class="footer-logo">
+                <p class="copyright-text">&copy; 2026 INEX ORGANIZER. All rights reserved.</p>
+                <p class="system-text">Advanced E-Sports Event Management System</p>
+                <div class="footer-social">
+                    <a href="#">Instagram</a>
+                    <a href="#">WhatsApp</a>
+                    <a href="#">Email</a>
+                </div>
+            </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
     <script src="script.js"></script>
 </body>
 </html>

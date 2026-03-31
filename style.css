@@ -1,243 +1,405 @@
-/* Reset & Fonts */
+/* =========================================
+   VARIABLES & RESET
+   ========================================= */
+:root {
+    --bg-main: #0b0e14;
+    --bg-darker: #07090d;
+    --bg-card: #121822;
+    --border-color: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent-gold: #facc15;
+    --accent-gold-glow: rgba(250, 204, 21, 0.4);
+    --accent-blue: #38bdf8;
+    --accent-green: #4ade80;
+    --accent-purple: #c084fc;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #0b0e14;
-    color: #e2e8f0;
+    background-color: var(--bg-main);
+    color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-/* Layout Umum */
-.container { width: 90%; max-width: 1100px; margin: auto; }
-.section-padding { padding: 60px 0; }
-.bg-darker { background-color: #121822; }
-
-/* Header dengan Efek Glassmorphism saat di-scroll */
-header {
-    background-color: #0b0e14;
-    padding: 20px 0;
-    border-bottom: 1px solid #1e293b;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 999;
-    transition: all 0.3s ease;
-}
-
-header.scrolled {
-    background-color: rgba(11, 14, 20, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(250, 204, 21, 0.2);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-}
-
-header .container.header-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    gap: 15px;
-}
-
-.logo-img {
-    height: 100px;
-    width: auto;
-    transition: height 0.3s ease;
-}
-
-header.scrolled .logo-img {
-    height: 60px; /* Logo mengecil saat di-scroll */
-}
-
-.logo-text {
-    font-size: 24px;
-    font-weight: 700;
-    color: #facc15;
-    letter-spacing: 1px;
-    margin-bottom: 0;
-}
-
-/* Hero / Intro */
-.hero { padding: 150px 0 50px 0; border-bottom: 1px solid #1e293b; }
-.hero-container { text-align: center; }
-.main-title { font-size: 2.5rem; color: #fff; margin-bottom: 10px; font-weight: 700; }
-.tagline { font-size: 1.1rem; color: #94a3b8; font-style: italic; margin-bottom: 40px; min-height: 30px; }
-
-/* Efek Kursor Mengetik (Typewriter) */
-.typewrite > .wrap { border-right: 0.08em solid #facc15; padding-right: 2px; }
-
-.intro-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; margin-bottom: 30px; text-align: left;
-}
-.intro-box { background: #121822; padding: 25px; border-radius: 8px; border: 1px solid #1e293b; }
-.intro-label { font-weight: 600; color: #facc15; margin-bottom: 15px; }
-
-.game-list, .location-list { list-style: none; padding-left: 10px; }
-.game-list li, .location-list li { margin-bottom: 8px; position: relative; padding-left: 20px; color: #cbd5e1; }
-.game-list li::before { content: "🎮"; position: absolute; left: -5px; font-size: 0.8rem; }
-.location-list li::before { content: "📍"; position: absolute; left: -5px; font-size: 0.8rem; }
-
-.full-service {
-    margin-top: 30px; font-size: 1.1rem; font-weight: 500;
-    color: #fff; background: #1e293b; display: inline-block;
-    padding: 10px 20px; border-radius: 6px;
-}
-
-/* Section Title */
-.section-title {
-    text-align: center; font-size: 1.5rem; margin-bottom: 40px;
-    color: #fff; font-weight: 600; letter-spacing: 1px;
-}
-
-/* Grid Toko / Paket */
-.product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.product-card {
-    background: #0f141e; border: 1px solid #1e293b; border-radius: 12px;
-    display: flex; flex-direction: column; transition: 0.3s ease;
-}
-
-.card-header { padding: 25px; text-align: center; border-bottom: 1px solid #1e293b; }
-.basic-border h3 { color: #4ade80; }
-.standard-border h3 { color: #38bdf8; }
-.premium-border h3 { color: #c084fc; }
-
-.card-header h3 { font-size: 1.2rem; margin-bottom: 10px; }
-.price { font-size: 1.8rem; font-weight: 700; color: #facc15; margin-bottom: 5px; }
-.cocok { font-size: 0.85rem; color: #94a3b8; }
-
-.card-body { padding: 25px; flex-grow: 1; }
-.fasilitas-title { font-weight: 600; color: #fff; margin-bottom: 15px; }
-.card-body ul { list-style: none; font-size: 0.9rem; color: #cbd5e1; }
-.card-body li { margin-bottom: 10px; position: relative; padding-left: 20px; }
-.card-body li::before { content: "▪"; color: #facc15; position: absolute; left: 0; font-size: 1.2rem; line-height: 1; }
-
-.btn-buy {
-    display: block; text-align: center; padding: 15px; margin: 0 25px 25px;
-    background: transparent; border: 1px solid #facc15; color: #facc15;
-    text-decoration: none; font-weight: 600; border-radius: 6px; transition: 0.3s;
-}
-.btn-buy:hover { background: #facc15; color: #0b0e14; }
-.btn-primary { background: #facc15; color: #0b0e14; }
-.btn-primary:hover { background: #eab308; }
-
-/* Waktu Pemesanan */
-.waktu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-.waktu-card { padding: 30px; border-radius: 12px; border: 1px solid #1e293b; background: #0f141e; }
-.waktu-card h3 { font-size: 1.2rem; margin-bottom: 10px; color: #fff; }
-.waktu-card.warning h3::before { content: "🔥 "; }
-.waktu-card.success h3::before { content: "⏳ "; }
-
-.biaya { font-size: 1rem; color: #cbd5e1; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #1e293b; }
-.biaya strong { color: #ef4444; }
-.biaya.bonus { color: #facc15; font-weight: 700; }
-
-.waktu-details { display: flex; gap: 20px; flex-wrap: wrap; }
-.waktu-col { flex: 1; min-width: 150px; }
-.detail-title { font-weight: 600; color: #fff; font-size: 0.9rem; margin-bottom: 10px; }
-.waktu-col ul { list-style: none; font-size: 0.85rem; color: #cbd5e1; }
-.waktu-col li { margin-bottom: 5px; padding-left: 12px; position: relative; }
-.waktu-col li::before { content: "-"; position: absolute; left: 0; color: #64748b; }
-
-/* Info Grid (Keunggulan & Notes) */
-.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-.info-box { padding: 30px; background: #0f141e; border-radius: 12px; border: 1px solid #1e293b; }
-.info-box h2 { font-size: 1.2rem; color: #facc15; margin-bottom: 20px; }
-.check-list, .dot-list { list-style: none; color: #cbd5e1; font-size: 0.95rem; }
-.check-list li, .dot-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
-.check-list li::before { content: "✓"; position: absolute; left: 0; color: #4ade80; font-weight: bold; }
-.dot-list li::before { content: "▸"; position: absolute; left: 0; color: #facc15; font-size: 1.2rem; line-height: 1; }
-
-/* Footer */
-footer { text-align: center; padding: 30px; background: #0b0e14; color: #64748b; font-size: 0.85rem; border-top: 1px solid #1e293b; }
-
-/* Tombol WA Resmi Bawah Kanan */
-.float-wa {
-    position: fixed; bottom: 30px; right: 30px;
-    background-color: #25D366; 
-    color: #fff;
-    border-radius: 50%; padding: 15px;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    z-index: 1000; transition: 0.3s ease;
-}
-.float-wa:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5); }
-
-
 /* =========================================
-   ANIMASI & EFEK INTERAKTIF
+   CUSTOM CYBER CURSOR (Otomatis Off di HP)
    ========================================= */
-
-/* 1. Animasi Scroll Reveal */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.8s ease-out;
-}
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* 2. Efek Glow Interaktif pada Kartu (Khusus PC agar tidak error di HP) */
-@media (hover: hover) {
-    .product-card, .info-box, .waktu-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+@media (pointer: fine) {
+    body { cursor: none; }
+    .cursor-dot, .cursor-outline {
+        position: fixed; top: 0; left: 0; transform: translate(-50%, -50%);
+        border-radius: 50%; z-index: 9999; pointer-events: none;
     }
-    .product-card:hover, .info-box:hover, .waktu-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(250, 204, 21, 0.1); 
-        border-color: #facc15;
+    .cursor-dot { width: 8px; height: 8px; background-color: var(--accent-gold); }
+    .cursor-outline {
+        width: 40px; height: 40px; border: 2px solid rgba(250, 204, 21, 0.5);
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
     }
-    .highlight-card:hover {
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 30px rgba(56, 189, 248, 0.2); 
-        border-color: #38bdf8;
+    a:hover ~ .cursor-outline, button:hover ~ .cursor-outline {
+        width: 60px; height: 60px; background-color: rgba(250, 204, 21, 0.1);
     }
-}
-
-/* 3. Efek Pulsing pada Tombol Beli Utama */
-.btn-primary {
-    animation: pulse 2s infinite;
-}
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(250, 204, 21, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); }
 }
 
 /* =========================================
-   RESPONSIF MOBILE (HP)
+   LOADING SCREEN NEON
+   ========================================= */
+.loader-wrapper {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--bg-main); z-index: 10000;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    transition: opacity 0.5s ease-out;
+}
+.loader-content { text-align: center; }
+.loader-logo {
+    font-size: 3rem; font-weight: 900; color: var(--accent-gold);
+    letter-spacing: 2px; text-shadow: 0 0 20px var(--accent-gold-glow);
+    animation: neonPulse 1.5s infinite alternate; margin-bottom: 25px;
+}
+.loader-bar-container {
+    width: 250px; height: 4px; background: rgba(255,255,255,0.1); border-radius: 10px;
+    overflow: hidden; margin: 0 auto 15px auto;
+}
+.loader-bar {
+    height: 100%; width: 0; background: var(--accent-gold);
+    box-shadow: 0 0 10px var(--accent-gold); animation: loadingBar 1.5s ease-in-out forwards;
+}
+.loader-text { font-size: 0.8rem; letter-spacing: 3px; color: var(--text-muted); font-weight: 600; }
+
+@keyframes neonPulse {
+    from { text-shadow: 0 0 5px #fff, 0 0 15px var(--accent-gold); }
+    to { text-shadow: 0 0 2px #fff, 0 0 8px var(--accent-gold); }
+}
+@keyframes loadingBar { 0% { width: 0; } 50% { width: 60%; } 100% { width: 100%; } }
+
+/* =========================================
+   LAYOUT UMUM & KOMPONEN
+   ========================================= */
+.container { width: 90%; max-width: 1100px; margin: auto; }
+.section-padding { padding: 100px 0; position: relative; }
+.bg-darker { background-color: var(--bg-darker); }
+
+/* Glassmorphism Box Modern */
+.glass-box { 
+    background: rgba(18, 24, 34, 0.5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05); padding: 35px; 
+    border-radius: 16px; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+.hover-lift { transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease; }
+.hover-lift:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.6); border-color: rgba(255,255,255,0.15); }
+
+/* Smart Back To Top */
+.progress-wrap {
+    position: fixed; right: 30px; bottom: 100px; height: 50px; width: 50px;
+    cursor: pointer; display: block; border-radius: 50px;
+    box-shadow: inset 0 0 0 2px rgba(250, 204, 21, 0.2);
+    z-index: 1000; opacity: 0; visibility: hidden;
+    transform: translateY(20px); transition: all 0.3s ease;
+    background-color: rgba(11, 14, 20, 0.8);
+}
+.progress-wrap.active-progress { opacity: 1; visibility: visible; transform: translateY(0); }
+.progress-wrap::after {
+    position: absolute; content: ''; text-align: center; line-height: 50px;
+    font-size: 20px; color: var(--accent-gold); left: 0; top: 0; height: 50px; width: 50px;
+    cursor: pointer; display: block; z-index: 1;
+}
+.progress-wrap svg path { fill: none; }
+.progress-wrap svg.progress-circle path { stroke: var(--accent-gold); stroke-width: 4; box-sizing: border-box; transition: all 200ms linear; }
+.arrow-up { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--accent-gold); font-size: 20px; font-weight: 800;}
+
+/* =========================================
+   HEADER KACA (MENEMPEL DI ATAS)
+   ========================================= */
+header {
+    background-color: transparent; padding: 25px 0; text-align: center;
+    position: fixed; width: 100%; top: 0; z-index: 999; transition: all 0.4s ease;
+}
+header.scrolled {
+    background-color: rgba(11, 14, 20, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    padding: 12px 0; border-bottom: 1px solid rgba(250, 204, 21, 0.15); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+}
+header .container.header-container { display: flex; justify-content: center; align-items: center; }
+.logo-link { display: flex; align-items: center; text-decoration: none; gap: 15px; }
+.logo-img { height: 90px; width: auto; transition: height 0.4s ease; filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.4)); }
+header.scrolled .logo-img { height: 50px; }
+.logo-text { font-size: 28px; font-weight: 800; color: var(--accent-gold); letter-spacing: 1px; margin-bottom: 0; }
+
+/* =========================================
+   HERO SECTION & GLITCH
+   ========================================= */
+.hero { 
+    padding: 190px 0 80px 0; position: relative; overflow: hidden;
+    background: radial-gradient(circle at top center, #1a2333 0%, var(--bg-main) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+#particles-js { position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; }
+.relative-z { position: relative; z-index: 10; }
+.hero-container { text-align: center; }
+
+.badge-hero {
+    display: inline-block; padding: 8px 20px; background: rgba(250, 204, 21, 0.1);
+    color: var(--accent-gold); font-size: 0.9rem; font-weight: 600; border-radius: 50px;
+    border: 1px solid rgba(250, 204, 21, 0.3); margin-bottom: 25px; letter-spacing: 1px;
+}
+
+.main-title { font-size: 4rem; color: #fff; margin-bottom: 15px; font-weight: 900; letter-spacing: 2px;}
+.glitched { position: relative; display: inline-block; }
+.glitched::before, .glitched::after { content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent; }
+.glitched::before { left: 3px; text-shadow: -2px 0 #ff00c1; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim 4s infinite linear alternate-reverse; }
+.glitched::after { left: -3px; text-shadow: -2px 0 #00fff9; clip: rect(44px, 450px, 56px, 0); animation: glitch-anim2 4s infinite linear alternate-reverse; }
+@keyframes glitch-anim { 0% { clip: rect(32px, 9999px, 86px, 0); } 20% { clip: rect(38px, 9999px, 98px, 0); } 40% { clip: rect(2px, 9999px, 91px, 0); } 60% { clip: rect(38px, 9999px, 99px, 0); } 80% { clip: rect(49px, 9999px, 66px, 0); } 100% { clip: rect(59px, 9999px, 62px, 0); } }
+@keyframes glitch-anim2 { 0% { clip: rect(65px, 9999px, 100px, 0); } 20% { clip: rect(67px, 9999px, 61px, 0); } 40% { clip: rect(23px, 9999px, 98px, 0); } 60% { clip: rect(30px, 9999px, 16px, 0); } 80% { clip: rect(47px, 9999px, 73px, 0); } 100% { clip: rect(38px, 9999px, 49px, 0); } }
+
+.tagline { font-size: 1.3rem; color: var(--text-muted); font-style: italic; margin-bottom: 60px; min-height: 40px; }
+.typewrite > .wrap { border-right: 0.15em solid var(--accent-gold); padding-right: 4px; animation: blink-cursor 0.7s infinite; color: #fff;}
+@keyframes blink-cursor { 50% { border-color: transparent; } }
+
+.intro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-bottom: 45px; text-align: left; }
+.intro-label { font-weight: 600; color: var(--accent-gold); margin-bottom: 20px; font-size: 1.1rem; }
+.game-list, .location-list { list-style: none; padding-left: 10px; }
+.game-list li, .location-list li { margin-bottom: 12px; position: relative; padding-left: 35px; color: #cbd5e1; font-weight: 500; transition: color 0.3s;}
+.game-list li:hover, .location-list li:hover { color: #fff; transform: translateX(5px); }
+.game-list li::before { content: "🎮"; position: absolute; left: 0; font-size: 1.1rem; }
+.location-list li::before { content: "📍"; position: absolute; left: 0; font-size: 1.1rem; }
+.full-service { margin-top: 20px; font-size: 1.15rem; font-weight: 600; color: #fff; background: linear-gradient(90deg, #1e293b, var(--bg-card), #1e293b); display: inline-block; padding: 15px 35px; border-radius: 50px; border: 1px solid #334155; box-shadow: 0 10px 20px rgba(0,0,0,0.5);}
+
+/* =========================================
+   INFINITE MARQUEE
+   ========================================= */
+.marquee-container {
+    background: var(--accent-gold); color: #000; padding: 12px 0;
+    overflow: hidden; position: relative; border-top: 2px solid #000; border-bottom: 2px solid #000;
+}
+.marquee-content {
+    display: flex; width: max-content;
+    animation: marqueeScroll 25s linear infinite;
+}
+.marquee-content span {
+    font-size: 1.2rem; font-weight: 900; text-transform: uppercase;
+    padding: 0 45px; letter-spacing: 2px; white-space: nowrap; display: flex; align-items: center;
+}
+@keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* =========================================
+   PAKET LAYANAN (ANTI-ERROR / SAFE FLEXBOX)
+   ========================================= */
+.section-title { text-align: center; font-size: 2.2rem; margin-bottom: 70px; color: #fff; font-weight: 900; letter-spacing: 1px; }
+.accent-text { color: var(--accent-gold); }
+
+.product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 40px; 
+    align-items: stretch; /* Memastikan semua kartu sama tinggi */
+}
+
+/* Struktur Kartu Diperbarui Untuk Mencegah Tumpang Tindih */
+.product-card {
+    display: flex; 
+    flex-direction: column; 
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden; 
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    height: 100%; /* Memastikan tinggi kartu terisi penuh */
+}
+.product-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.8); }
+
+/* Warna Garis Atas Khusus Tiap Paket */
+.basic-card { border-top: 5px solid var(--accent-green); }
+.standard-card { border-top: 5px solid var(--accent-blue); transform: scale(1.03); border-color: var(--accent-blue); box-shadow: 0 15px 35px rgba(56, 189, 248, 0.15);}
+.premium-card { border-top: 5px solid var(--accent-purple); }
+
+.standard-card:hover { transform: scale(1.03) translateY(-10px); box-shadow: 0 25px 50px rgba(56, 189, 248, 0.3); }
+
+/* Lencana Popular */
+.badge-premium {
+    position: absolute; top: 15px; right: -35px; background: var(--accent-gold); color: #000;
+    padding: 8px 40px; font-size: 0.8rem; font-weight: 800; transform: rotate(45deg); letter-spacing: 1px;
+}
+
+.card-header { padding: 35px 30px 25px; text-align: center; background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border-color); }
+.card-header h3 { font-size: 1.4rem; margin-bottom: 15px; font-weight: 700; color: #fff;}
+.price { font-size: 2.2rem; font-weight: 900; color: var(--accent-gold); margin-bottom: 5px; }
+.cocok { font-size: 0.9rem; color: var(--text-muted); }
+
+/* Perbaikan Ruang Kosong */
+.card-body { 
+    padding: 30px; 
+    flex: 1 1 auto; /* Ini penting: mengisi ruang yang tersisa, mendorong tombol ke bawah */
+}
+.fasilitas-title { font-weight: 700; color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
+.feature-list { list-style: none; font-size: 0.95rem; color: #cbd5e1; }
+.feature-list li { margin-bottom: 15px; position: relative; padding-left: 25px; font-weight: 400; }
+.feature-list li::before { content: "✓"; color: var(--accent-green); position: absolute; left: 0; font-size: 1.2rem; font-weight: 900; line-height: 1; }
+
+.btn-container {
+    padding: 0 30px 35px 30px; /* Padding untuk jarak tombol dari bawah kartu */
+}
+.btn-buy {
+    display: block; text-align: center; padding: 18px;
+    background: transparent; border: 2px solid var(--accent-gold); color: var(--accent-gold);
+    text-decoration: none; font-weight: 800; border-radius: 10px; transition: all 0.3s ease;
+    text-transform: uppercase; letter-spacing: 1px;
+}
+.btn-buy:hover { background: var(--accent-gold); color: var(--bg-main); box-shadow: 0 0 20px rgba(250, 204, 21, 0.4); }
+
+.btn-primary { background: var(--accent-gold); color: var(--bg-main); animation: pulseGlow 2s infinite; border: none; }
+.btn-primary:hover { background: #fff; color: #000; box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); animation: none; }
+
+/* =========================================
+   WAKTU PEMESANAN
+   ========================================= */
+.waktu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+.waktu-card { padding: 40px; border-radius: 16px; border: 1px solid var(--border-color); }
+.waktu-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+.waktu-icon { font-size: 2rem; }
+.waktu-header h3 { font-size: 1.4rem; color: #fff; font-weight: 800; margin: 0; }
+
+.biaya { font-size: 1.1rem; color: #cbd5e1; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed #334155; }
+.biaya strong { color: #ef4444; font-size: 1.2rem; }
+.biaya.bonus { color: var(--accent-gold); font-weight: 800; font-size: 1.2rem;}
+
+.waktu-details { display: flex; gap: 30px; flex-wrap: wrap; }
+.waktu-col { flex: 1; min-width: 200px; }
+.detail-title { font-weight: 700; color: #fff; font-size: 1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;}
+.waktu-list { list-style: none; font-size: 0.95rem; color: #cbd5e1; }
+.waktu-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+.waktu-list li::before { content: "▹"; position: absolute; left: 0; color: var(--accent-blue); font-size: 1.2rem; font-weight: bold; line-height: 1.2; }
+
+/* =========================================
+   PORTFOLIO / GALLERY
+   ========================================= */
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.portfolio-item {
+    position: relative; height: 280px; border-radius: 16px; overflow: hidden;
+    cursor: crosshair; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+.portfolio-img-bg {
+    width: 100%; height: 100%; background-size: cover; background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.portfolio-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(11, 14, 20, 0.95) 0%, rgba(11, 14, 20, 0.1) 100%);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 30px;
+    opacity: 0; transform: translateY(20px); transition: all 0.4s ease;
+}
+.portfolio-item:hover .portfolio-img-bg { transform: scale(1.1); filter: grayscale(30%); }
+.portfolio-item:hover .portfolio-overlay { opacity: 1; transform: translateY(0); }
+.portfolio-overlay h4 { color: var(--accent-gold); font-size: 1.4rem; font-weight: 800; margin-bottom: 5px; }
+.portfolio-overlay p { color: #cbd5e1; font-size: 1rem; font-weight: 500;}
+
+/* =========================================
+   INFO GRID & FAQ ACCORDION
+   ========================================= */
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+.info-box { padding: 40px; border-radius: 16px; border: 1px solid var(--border-color); }
+.info-box h2 { font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 30px; font-weight: 800; }
+.check-list, .dot-list { list-style: none; color: #cbd5e1; font-size: 1.05rem; }
+.check-list li, .dot-list li { margin-bottom: 18px; padding-left: 35px; position: relative; }
+.check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-green); font-weight: 900; font-size: 1.3rem; }
+.dot-list li::before { content: "▸"; position: absolute; left: 0; color: var(--accent-gold); font-size: 1.5rem; line-height: 1; }
+
+.faq-container { max-width: 850px; margin: 0 auto; }
+.faq-item { background: var(--bg-card); margin-bottom: 20px; border-radius: 12px; border: 1px solid var(--border-color); overflow: hidden; transition: 0.3s; }
+.faq-item.active { border-color: var(--accent-gold); box-shadow: 0 0 20px rgba(250, 204, 21, 0.15); }
+.faq-btn {
+    width: 100%; text-align: left; padding: 25px 30px; background: none; border: none;
+    color: #fff; font-size: 1.15rem; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; font-family: 'Poppins', sans-serif;
+}
+.faq-btn:hover { color: var(--accent-gold); background: rgba(255,255,255,0.02); }
+.faq-icon { font-size: 1.8rem; font-weight: 300; transition: transform 0.4s ease; color: var(--accent-gold); }
+.faq-item.active .faq-icon { transform: rotate(45deg); }
+.faq-content { padding: 0 30px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; color: #cbd5e1; font-size: 1rem; line-height: 1.8; }
+.faq-content p { padding-bottom: 25px; }
+
+/* =========================================
+   FOOTER & FLOATING WA
+   ========================================= */
+footer { text-align: center; padding: 70px 0 50px 0; background: var(--bg-darker); border-top: 1px solid var(--border-color); }
+.footer-content { display: flex; flex-direction: column; align-items: center; }
+.footer-logo { height: 70px; margin-bottom: 25px; opacity: 0.8; transition: 0.3s;}
+.footer-logo:hover { opacity: 1; filter: drop-shadow(0 0 10px rgba(255,255,255,0.5)); }
+.copyright-text { font-size: 1rem; color: #fff; font-weight: 600; margin-bottom: 5px; }
+.system-text { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 25px;}
+.footer-social { display: flex; gap: 20px; }
+.footer-social a { color: var(--accent-gold); text-decoration: none; font-weight: 600; font-size: 0.9rem; padding: 8px 20px; border: 1px solid var(--border-color); border-radius: 50px; transition: 0.3s; }
+.footer-social a:hover { background: var(--accent-gold); color: #000; border-color: var(--accent-gold); }
+
+.float-wa {
+    position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: #fff;
+    border-radius: 50%; padding: 18px; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); z-index: 1000; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.float-wa:hover { transform: scale(1.15) rotate(5deg); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6); }
+
+/* =========================================
+   ANIMASI UTAMA
+   ========================================= */
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+@keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(250, 204, 21, 0); } 100% { box-shadow: 0 0 0 0 rgba(250, 204, 21, 0); } }
+
+
+/* =========================================
+   RESPONSIF MOBILE (HP) - 1000% AMAN ANTI-ERROR
    ========================================= */
 @media (max-width: 768px) {
-    .section-padding { padding: 40px 0; }
+    body { cursor: auto; }
+    .cursor-dot, .cursor-outline { display: none !important; }
     
-    /* Pengecilan Header di HP */
-    .logo-img { height: 70px; } 
-    header.scrolled .logo-img { height: 45px; }
-    .logo-text { font-size: 20px; }
+    .section-padding { padding: 60px 0; }
     
-    .hero { padding: 120px 0 40px 0; }
-    .main-title { font-size: 2rem; margin-bottom: 5px; }
-    .tagline { font-size: 0.95rem; margin-bottom: 30px; min-height: 45px; } 
+    /* Header HP */
+    .logo-img { height: 60px !important; } 
+    header.scrolled .logo-img { height: 40px !important; }
+    .logo-text { font-size: 20px !important; }
+    header.scrolled { padding: 10px 0; }
     
-    /* Layout Kartu HP */
-    .product-grid, .waktu-grid, .intro-grid, .info-grid { gap: 20px; }
-    .highlight-card { transform: none; border-color: #1e293b; } /* Reset transform di HP */
-    .card-header h3 { font-size: 1.1rem; }
-    .price { font-size: 1.5rem; }
+    /* Hero HP */
+    .hero { padding: 140px 0 50px 0; }
+    .main-title { font-size: 2.5rem; margin-bottom: 10px; }
+    .tagline { font-size: 1rem; margin-bottom: 30px; min-height: 48px; } 
+    .badge-hero { font-size: 0.8rem; padding: 6px 15px; }
     
+    /* Reveal dibuat lebih halus di HP (Hanya Fade In) */
+    .reveal { transform: none !important; transition: opacity 0.6s ease-out !important; }
+    
+    /* PERBAIKAN TOTAL KARTU PAKET DI HP */
+    .product-card { 
+        margin-bottom: 20px; 
+        border-radius: 16px;
+    }
+    .product-card:hover { transform: none; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    .highlight-card { transform: none; } /* Matikan scale di HP agar tidak luber */
+    .highlight-card:hover { transform: none; }
+    
+    /* Pengecilan Font di Kartu */
+    .card-header { padding: 25px 20px; }
+    .card-header h3 { font-size: 1.25rem; }
+    .price { font-size: 1.8rem; }
+    .card-body { padding: 20px; }
+    .btn-container { padding: 0 20px 25px 20px; }
+    .btn-buy { padding: 15px; margin: 0; font-size: 0.95rem;}
+    
+    /* Gallery Mobile */
+    .portfolio-overlay { opacity: 1; background: linear-gradient(to top, rgba(11, 14, 20, 0.95) 0%, rgba(11, 14, 20, 0) 100%); transform: translateY(0); padding: 20px;}
+    .portfolio-overlay h4 { font-size: 1.2rem; }
+    
+    /* Grid HP General */
+    .product-grid, .waktu-grid, .intro-grid, .info-grid, .portfolio-grid { gap: 20px; display: flex; flex-direction: column; }
     .waktu-details { flex-direction: column; gap: 15px; }
     
-    /* Penyesuaian Tombol WA melayang di HP */
-    .float-wa { bottom: 20px; right: 20px; padding: 12px; }
+    /* Floating Buttons HP */
+    .float-wa { bottom: 20px; right: 20px; padding: 15px; }
     .float-wa svg { width: 24px; height: 24px; }
+    .progress-wrap { right: 20px; bottom: 95px; height: 45px; width: 45px; }
+    .progress-wrap::after { line-height: 45px; height: 45px; width: 45px; font-size: 22px;}
 }
