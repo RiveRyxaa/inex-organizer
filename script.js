@@ -1,5 +1,5 @@
 /* ==============================================================
-   1. CUSTOM CYBER CURSOR (Hanya jalan jika pakai Mouse/PC)
+   1. CUSTOM CYBER CURSOR
    ============================================================== */
 const cursorDot = document.getElementById("cursor-dot");
 const cursorOutline = document.getElementById("cursor-outline");
@@ -10,8 +10,7 @@ if (cursorDot && cursorOutline && window.innerWidth > 768) {
 
     window.addEventListener("mousemove", function(e) {
         mouseX = e.clientX; mouseY = e.clientY;
-        cursorDot.style.left = `${mouseX}px`;
-        cursorDot.style.top = `${mouseY}px`;
+        cursorDot.style.left = `${mouseX}px`; cursorDot.style.top = `${mouseY}px`;
     });
 
     function animateCursor() {
@@ -30,35 +29,36 @@ window.addEventListener("load", function() {
     setTimeout(function() {
         var loader = document.getElementById("loader");
         loader.style.opacity = "0";
-        setTimeout(function() { loader.style.display = "none"; }, 600);
+        setTimeout(function() { loader.style.display = "none"; }, 500);
     }, 1500);
 });
 
 /* ==============================================================
-   3. SMART PARTICLES.JS (Mengurangi partikel di HP agar tidak lemot)
+   3. SMART PARTICLES.JS & EFEK TILT PC
    ============================================================== */
 document.addEventListener("DOMContentLoaded", function() {
+    
+    if (window.innerWidth >= 1024 && typeof VanillaTilt !== 'undefined') {
+        VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+            max: 10, speed: 400, glare: true, "max-glare": 0.15
+        });
+    }
+
     if(window.particlesJS) {
-        // Cek ukuran layar, jika HP partikel dikurangi jadi 20, jika PC 60.
-        let particleCount = window.innerWidth < 768 ? 20 : 60;
-        
+        let particleCount = window.innerWidth < 768 ? 15 : 50;
         particlesJS("particles-js", {
             "particles": {
                 "number": { "value": particleCount, "density": { "enable": true, "value_area": 800 } },
                 "color": { "value": "#facc15" },
                 "shape": { "type": "circle" },
-                "opacity": { "value": 0.3, "random": true },
+                "opacity": { "value": 0.4, "random": true },
                 "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#facc15", "opacity": 0.2, "width": 1 },
+                "line_linked": { "enable": true, "distance": 150, "color": "#facc15", "opacity": 0.25, "width": 1 },
                 "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
             },
             "interactivity": {
                 "detect_on": "canvas",
-                "events": { 
-                    "onhover": { "enable": window.innerWidth > 768, "mode": "grab" }, // Hover partikel hanya di PC
-                    "onclick": { "enable": true, "mode": "push" }, 
-                    "resize": true 
-                },
+                "events": { "onhover": { "enable": window.innerWidth > 768, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
                 "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } }, "push": { "particles_nb": 3 } }
             },
             "retina_detect": true
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* ==============================================================
-   4. SCROLL REVEAL (Safe for Mobile)
+   4. SCROLL REVEAL ANIMATION
    ============================================================== */
 function revealOnScroll() {
     var reveals = document.querySelectorAll('.reveal');
@@ -88,11 +88,8 @@ setTimeout(revealOnScroll, 1600);
    ============================================================== */
 window.addEventListener("scroll", function() {
     var header = document.getElementById("navbar");
-    if (window.scrollY > 30) {
-        header.classList.add("scrolled");
-    } else {
-        header.classList.remove("scrolled");
-    }
+    if (window.scrollY > 30) { header.classList.add("scrolled"); } 
+    else { header.classList.remove("scrolled"); }
 });
 
 /* ==============================================================
@@ -128,7 +125,7 @@ setTimeout(function() {
         var period = elements[i].getAttribute('data-period');
         if (toRotate) { new TxtType(elements[i], JSON.parse(toRotate), period); }
     }
-}, 1500);
+}, 1600);
 
 /* ==============================================================
    7. INTERACTIVE FAQ ACCORDION
@@ -141,16 +138,14 @@ faqBtns.forEach(btn => {
         const icon = this.querySelector('.faq-icon');
         
         if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-            icon.textContent = '+';
+            content.style.maxHeight = null; icon.textContent = '+';
         } else {
             document.querySelectorAll('.faq-content').forEach(c => c.style.maxHeight = null);
             document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
             document.querySelectorAll('.faq-icon').forEach(ic => ic.textContent = '+');
             
             this.parentElement.classList.add('active');
-            content.style.maxHeight = content.scrollHeight + "px";
-            icon.textContent = '-';
+            content.style.maxHeight = content.scrollHeight + "px"; icon.textContent = '-';
         }
     });
 });
@@ -178,7 +173,7 @@ if (progressPath) {
 
     const progressWrap = document.querySelector('.progress-wrap');
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 150) { progressWrap.classList.add('active-progress'); } 
+        if (window.scrollY > 200) { progressWrap.classList.add('active-progress'); } 
         else { progressWrap.classList.remove('active-progress'); }
     });
 
